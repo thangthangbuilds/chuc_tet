@@ -3,13 +3,6 @@
 <head>
     <title>Welcome to Web</title>
     <style>
-        .mau {
-            border: none;
-            background: red;
-            padding: 10px;
-            color: green;
-            cursor: pointer;
-        }
         body {
             margin: 0;
             background: black;
@@ -21,12 +14,22 @@
             overflow: hidden;
             height: 100vh;
         }
-        .mau:hover {
-            padding: 12px 20px;
+        .mau {
+            border: none;
+            background: red;
+            padding: 10px 20px;
             color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .mau:hover {
+            padding: 12px 30px;
+            color: yellow;
             border-radius: 8px;
             font-size: 18px;
-            transition: 0.3s;
+            box-shadow: 0 0 15px red;
         }
         .cursor-dot {
             position: fixed;
@@ -36,7 +39,6 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 999;
-          
             transform: translate(-50%, -50%);
             animation: fadeOut 0.8s forwards;
         }
@@ -49,8 +51,7 @@
     </style>
 </head>
 <body>
-    <button class="mau">LHS</button>
-
+    <button class="mau" onclick="window.location.reload();">LHS</button>
     <script>
         function createDot(x, y) {
             const dot = document.createElement("div");
@@ -58,7 +59,6 @@
             dot.style.left = x + "px";
             dot.style.top = y + "px";
             document.body.appendChild(dot);
-            
             setTimeout(() => {
                 dot.remove();
             }, 800);
@@ -66,7 +66,6 @@
         document.addEventListener("mousemove", function(e) {
             createDot(e.clientX, e.clientY);
         });
-      
         document.addEventListener("touchmove", function(e) {
             const touch = e.touches[0];
             createDot(touch.clientX, touch.clientY);
@@ -74,4 +73,3 @@
     </script>
 </body>
 </html>
-
