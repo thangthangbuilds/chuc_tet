@@ -94,9 +94,10 @@ width:100%
     </div>
     <div class ="login-container">
         <h2> ĐĂNG NHẬP</h2>
-        <form> <input type="text" placeholder= "Tên đăng nhập">
-        <input type="password" placeholder ="Mật Khẩu">
-        <button type="sumit"> Đăng Nhập </button>
+        <form> onsumit="return login(event)">
+            <input type="text" id="user" placeholder="Tài Khoản">
+            <inputtype="password" id="pass"placeholder="Mật Khẩu">
+                <button> type="submit" >ĐĂNG NHẬP</button>
         </form>
     </div>
     <div class="my-photo">
@@ -128,9 +129,25 @@ width:100%
             const touch = e.touches[0];
             createDot(touch.clientX, touch.clientY);
         }, { passive: true });
+        function login(event) {
+            event.preventDefault();
+            var username =
+                document.getElementById("user").value;
+            var password=
+                document.getElementById(("pass").value;
+            var fakeUser="Adminthang";
+            var fakePass="0000";
+            if(username===fakeUser && password===fakePass)
+            {
+                window.location.href="homepage.html";
+            }
+            else{
+                elert("Sai tài khoản hoặc mật khẩu");
+            }
     </script>
 </body>
 </html>
+
 
 
 
