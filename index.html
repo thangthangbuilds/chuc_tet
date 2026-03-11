@@ -94,10 +94,10 @@ width:100%
     </div>
     <div class ="login-container">
         <h2> ĐĂNG NHẬP</h2>
-        <form> onsubmit="return login(event)">
+        <form onsubmit="return login(event)">
             <input type="text" id="user" placeholder="Tài Khoản">
-            <inputtype="password" id="pass"placeholder="Mật Khẩu">
-                <button> type="submit" >ĐĂNG NHẬP</button>
+            <input type="password" id="pass"placeholder="Mật Khẩu">
+                <button type="submit" >ĐĂNG NHẬP</button>
         </form>
     </div>
     <div class="my-photo">
@@ -134,7 +134,7 @@ width:100%
             var username =
                 document.getElementById("user").value;
             var password=
-                document.getElementById(("pass").value;
+                document.getElementById("pass").value;
             var fakeUser="Adminthang";
             var fakePass="0000";
             if(username===fakeUser && password===fakePass)
@@ -142,11 +142,12 @@ width:100%
                 window.location.href="homepage.html";
             }
             else{
-                elert("Sai tài khoản hoặc mật khẩu");
+                alert("Sai tài khoản hoặc mật khẩu");
             }
     </script>
 </body>
 </html>
+
 
 
 
