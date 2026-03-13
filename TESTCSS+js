@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> chào mừng bạn đến với trang chủ hls </title>
+<style>
+body{
+margin:0;
+background:red;
+color:white;
+font-family: Arial;
+overflow:hidden;
+.mau{
+flex:1;
+margin:0;
+border:1.5px solid #FFE4E1;
+background-color:#87CEEB;
+padding:10px 20px;
+color:blue;
+</style>
+</head>
+<body>
+<div class="menu">
+<button class="mau">🌍HOME</buton>
+<button class="mau">MEDIA</button>
+<button class="mau"> PICTURE</butto>
+<div class=
