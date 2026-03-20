@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chào mừng bạn đến với Trang Chủ HLS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASIC --- */
+        body {
+            margin: 0;
+            background: #ebdaea;
+            color: #333;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- MENU --- */
+        .menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            background: rgba(235, 218, 234, 0.95);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .menu button {
+            flex: 1;
+            max-width: 250px;
+            height: 60px;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: "Honk", system-ui !important;
+            background: #cbabd1;
+            color: #eaed13;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .main-content {
+            margin-top: 120px;
+            width: 98%;
+            max-width: 2000px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* --- PHẦN ĐĂNG BÀI --- */
+        .post-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* --- LƯỚI ẢNH TỰ ĐỘNG CHIA HÀNG --- */
+        .media-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; /* Khoảng cách giữa các ảnh */
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+        .media-item {
+            background: white;
+            border-radius: 0px; /* Góc vuông theo ý bạn */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            position: relative;
+            border: 2px solid white; /* Tạo viền nhẹ cho sang */
+        }
+
+        .media-item img, .media-item iframe {
+            width: 100%;
+            height: 250px; /* Tăng chiều cao lên cho ảnh to rõ hơn */
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-item:hover {
+            transform: scale(1.03);
+            z-index: 5;
+            border-color: #eaed13;
+        }
+
+        /* --- BÍ KÍP TỰ ĐỘNG CHIA KHOẢNG SAU 4 ẢNH --- */
+        /* Cứ mỗi item thứ 4, 8, 12... (cuối hàng) sẽ có một đường kẻ dưới hoặc khoảng cách */
+        .media-item:nth-child(4n) {
+            /* Bạn có thể thêm hiệu ứng riêng cho cột cuối cùng nếu muốn */
+        }
+
+        /* Tự động chèn đường kẻ phân cách sau mỗi hàng 4 ảnh */
+        /* Kỹ thuật này tạo một đường kẻ giả phủ toàn bộ chiều rộng sau mỗi 4 item */
+        .media-container::after {
+            content: "";
+            grid-column: 1 / -1; /* Trải dài hết 4 cột */
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 20px 0;
+            display: none; /* Hiện tại để ẩn, nếu muốn hiện đường kẻ thì đổi thành 'block' */
+        }
+
+        /* Tạo khoảng cách hàng (Row Gap) lớn hơn để nhìn rõ từng khối hàng */
+        .media-container {
+            row-gap: 50px; /* Tăng khoảng cách giữa hàng trên và hàng dưới */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <button>HOME</button>
+        <button>MEDIA</button>
+        <button>PICTURE</button>
+    </div>
+
+    <div class="main-content">
+        <div class="post-container">
+            <!-- Giữ nguyên phần đăng bài của bạn -->
+            <div class="post-header">
+                <textarea class="post-input" placeholder="Hôm Nay Bạn Thế Nào?"></textarea>
+                <button class="post-button">Đăng</button>
+            </div>
+        </div>
+
+        <div class="media-container">
+            <!-- Bạn cứ nhúng liên tục, trình duyệt tự chia 4 cột và cách hàng 50px -->
+            <div class="media-item"><img src="490832163_122099994440840616_2544878531413712226_n.jpg"></div>
+            <div class="media-item"><img src="3557638_SinhVienIT.NET---cd21402705eb0b9c47d20b38433cd342-38434345.nice.jpg"></div>
+            <div class="media-item"><img src="90_9581ac3d5fa8c72366d58e17308f9817.jpg"></div>
+            <div class="media-item"><img src="wallpaper-anh-gai-xinh-4k-1.webp"></div>
+            
+            <div class="media-item"><img src="hinh-nen-may-tinh-9.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-may-tinh-71.jpg"></div>
+            <div class="media-item"><img src="Duong-Mich.jpg"></div>
+            <div class="media-item"><img src="anh-nen-may-tinh-thac-nuoc-hung-vi_025729150.jpg"></div>
+
+            <div class="media-item"><img src="dc54ed1d-434f-4092-8512-9113d433c569.jfif"></div>
+            <div class="media-item"><img src="a90b5015-7e8d-4eb3-b70c-36c62f843a9b.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-girl-xinh-4k-cho-laptop17-scaled.jpg"></div>
+            <div class="media-item"><img src="anh-anime-ca-tinh-lanh-lung-ngau-nhat.jpg"></div>
+
+            <!-- Bạn có thể nhúng cả Video vào đây, nó vẫn nằm đúng ô -->
+            <div class="media-item">
+                <iframe src="https://youtube.com" frameborder="0"></iframe>
+            </div>
+            <div class="media-item"><img src="mdcdjd.jpg"></div>
+            <div class="media-item"><img src="544578871_122114301920977006_8456179275769375996_n.jpg"></div>
+            <div class="media-item"><img src="670781b1-ed7d-4f5b-94c4-e8668db34d5b.jfif"></div>
+        </div>
+    </div>
+
+</body>
+</html>
