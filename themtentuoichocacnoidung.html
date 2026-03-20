@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chào mừng bạn đến với Trang Chủ HLS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            background: #ebdaea;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- MENU --- */
+        .menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            background: rgba(235, 218, 234, 0.95);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu button {
+            flex: 1;
+            max-width: 250px;
+            height: 60px;
+            font-size: 40px;
+            font-family: "Honk", system-ui !important;
+            background: #cbabd1;
+            color: #eaed13;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .main-content {
+            margin-top: 120px;
+            width: 98%;
+            max-width: 2000px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- LƯỚI ẢNH --- */
+        .media-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            row-gap: 60px; /* Tạo khoảng cách dọc lớn hơn giữa các hàng */
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .media-item {
+            background: white;
+            border-radius: 0px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            border: 2px solid white;
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* HIỆU ỨNG NHÔ LÊN KHI DI CHUỘT */
+        .media-item:hover {
+            transform: scale(1.05); /* Nhô lên to hơn chút */
+            z-index: 10;
+            border-color: #eaed13; /* Viền vàng khi chọn */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        /* Cách đơn giản hơn để kẻ hàng thủ công nếu chỉnh tự động tự thêm kẻ hàng khó */
+        .hr-line {
+            grid-column: 1 / -1; /* Trải dài hết 4 cột */
+            height: 2px;
+            background: white;
+            margin: 20px 0;
+            box-shadow: 0 0 10px gold;
+            width:100%
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <button>HOME</button>
+        <button>MEDIA</button>
+        <button>PICTURE</button>
+    </div>
+
+    <div class="main-content">
+        <div class="media-container">
+            <!-- HÀNG 1 -->
+            <div class="media-item"><img src="490832163_122099994440840616_2544878531413712226_n.jpg"></div>
+            <div class="media-item"><img src="3557638_SinhVienIT.NET---cd21402705eb0b9c47d20b38433cd342-38434345.nice.jpg"></div>
+            <div class="media-item"><img src="90_9581ac3d5fa8c72366d58e17308f9817.jpg"></div>
+            <div class="media-item"><img src="wallpaper-anh-gai-xinh-4k-1.webp"></div>
+            
+            <!-- ĐƯỜNG KẺ PHÂN CÁCH (Bạn thêm dòng này sau mỗi 4 ảnh) -->
+            <div class="hr-line"></div>
+
+            <!-- HÀNG 2 -->
+            <div class="media-item"><img src="hinh-nen-may-tinh-9.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-may-tinh-71.jpg"></div>
+            <div class="media-item"><img src="Duong-Mich.jpg"></div>
+            <div class="media-item"><img src="anh-nen-may-tinh-thac-nuoc-hung-vi_025729150.jpg"></div>
+
+            <div class="hr-line"></div>
+
+            <!-- HÀNG 3 -->
+            <div class="media-item"><img src="dc54ed1d-434f-4092-8512-9113d433c569.jfif"></div>
+            <div class="media-item"><img src="a90b5015-7e8d-4eb3-b70c-36c62f843a9b.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-girl-xinh-4k-cho-laptop17-scaled.jpg"></div>
+            <div class="media-item"><img src="anh-anime-ca-tinh-lanh-lung-ngau-nhat.jpg"></div>
+        </div>
+    </div>
+
+</body>
+</html>
