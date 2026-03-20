@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chào mừng bạn đến với Trang Chủ HLS</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASIC --- */
+        body {
+            margin: 0;
+            background: #ebdaea;
+            color: #333; /* Đổi màu chữ tối để dễ đọc trên nền sáng */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa toàn bộ nội dung theo chiều ngang */
+            min-height: 100vh;
+        }
+
+        /* --- MENU (Cố định phía trên) --- */
+        .menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 15px 0;
+            background: rgba(235, 218, 234, 0.9); /* Nền mờ nhẹ */
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu button {
+            flex: 1;
+            max-width: 250px;
+            height: 60px;
+            font-size: 40px;
+            font-weight: bold;
+            font-style: italic;
+            background: #cbabd1;
+            color: #eaed13;
+            font-family: "Honk", system-ui;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .menu button:hover {
+            filter: brightness(1.1);
+        }
+
+        /* --- MAIN CONTAINER (Chứa Post và Media) --- */
+        .main-content {
+            margin-top: 100px; /* Khoảng cách để không bị menu đè lên */
+            width: 95%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* --- PHẦN ĐĂNG BÀI (POST) --- */
+        .post-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .post-header {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .post-input {
+            flex: 1;
+            height: 60px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .post-button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 0 20px;
+            height: 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .separator {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 15px 0;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 20px;
+            color: #555;
+        }
+
+        .actions-item {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- LƯỚI ẢNH (MEDIA GRID) --- */
+        .media-container {
+            display: grid;
+            /* CHÍNH XÁC 4 CỘT: repeat(4, 1fr) */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .media-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .media-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 200px; /* Cố định chiều cao để hàng lối thẳng tắp */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Responsive cho màn hình nhỏ hơn */
+        @media (max-width: 992px) {
+            .media-container { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .media-container { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu tách biệt hoàn toàn -->
+    <div class="menu">
+        <button>HOME</button>
+        <button>MEDIA</button>
+        <button>PICTURE</button>
+    </div>
+
+    <!-- Khối nội dung chính căn giữa -->
+    <div class="main-content">
+        
+        <!-- Khu vực đăng bài -->
+        <div class="post-container">
+            <div class="post-header">
+                <div class="user-avatar"></div>
+                <textarea class="post-input" placeholder="Hôm Nay Bạn Thế Nào?"></textarea>
+                <button class="post-button">Đăng</button>
+            </div>
+            <hr class="separator">
+            <div class="post-actions">
+                <div class="actions-item"><span>🎫</span> Video</div>
+                <div class="actions-item"><span>📊</span> Ảnh</div>
+                <div class="actions-item"><span>🙂</span> Cảm xúc</div>
+            </div>
+        </div>
+
+        <!-- Lưới hình ảnh -->
+        <div class="media-container">
+            <!-- Bạn có thể lặp lại khối media-item này cho các ảnh khác -->
+            <div class="media-item"><img src="490832163_122099994440840616_2544878531413712226_n.jpg"></div>
+            <div class="media-item"><img src="3557638_SinhVienIT.NET---cd21402705eb0b9c47d20b38433cd342-38434345.nice.jpg"></div>
+            <div class="media-item"><img src="90_9581ac3d5fa8c72366d58e17308f9817.jpg"></div>
+            <div class="media-item"><img src="wallpaper-anh-gai-xinh-4k-1.webp"></div>
+            <div class="media-item"><img src="hinh-nen-may-tinh-9.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-may-tinh-71.jpg"></div>
+            <div class="media-item"><img src="Duong-Mich.jpg"></div>
+            <div class="media-item"><img src="anh-nen-may-tinh-thac-nuoc-hung-vi_025729150.jpg"></div>
+            <div class="media-item"><img src="dc54ed1d-434f-4092-8512-9113d433c569.jfif"></div>
+            <div class="media-item"><img src="a90b5015-7e8d-4eb3-b70c-36c62f843a9b.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-girl-xinh-4k-cho-laptop17-scaled.jpg"></div>
+            <div class="media-item"><img src="anh-anime-ca-tinh-lanh-lung-ngau-nhat.jpg"></div>
+            <div class="media-item"><img src="595127543_122125263170994936_476169264733118107_n.jpg"></div>
+            <div class="media-item"><img src="800px-Example_of_copyedited_manuscript.jpg"></div>
+            <div class="media-item"><img src="mdcdjd.jpg"></div>
+            <div class="media-item"><img src="544578871_122114301920977006_8456179275769375996_n.jpg"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
