@@ -86,23 +86,7 @@
             border-color: #eaed13; /* Viền vàng khi chọn */
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-
-        /* --- TỰ ĐỘNG CHÈN ĐƯỜNG KẺ SAU MỖI 4 ITEM --- */
-        /* Cứ mỗi item thứ 4, 8, 12... ta sẽ tạo một đường kẻ giả phía dưới nó */
-        .media-item:nth-child(4n)::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -40px; /* Đẩy xuống dưới ảnh */
-            width: 410%;   /* Kéo dài qua cả 4 ảnh (vì 100% * 4 + gap) */
-            height: 4px;
-            background: linear-gradient(to right, transparent, gold, transparent); /* Màu vàng lấp lánh */
-            pointer-events: none;
-            /* Dịch chuyển đường kẻ về đúng vị trí bắt đầu của hàng */
-            transform: translateX(-75%); 
-        }
-
-        /* Cách đơn giản hơn để kẻ hàng nếu cách trên khó chỉnh */
+        /* Cách đơn giản hơn để kẻ hàng thủ công nếu chỉnh tự động tự thêm kẻ hàng khó */
         .hr-line {
             grid-column: 1 / -1; /* Trải dài hết 4 cột */
             height: 2px;
