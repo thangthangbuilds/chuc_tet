@@ -8,16 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
     
     <style>
-        /* --- RESET & BASIC --- */
         body {
             margin: 0;
             background: #ebdaea;
-            color: #333;
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
         /* --- MENU --- */
@@ -31,7 +28,6 @@
             position: fixed;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .menu button {
@@ -39,14 +35,12 @@
             max-width: 250px;
             height: 60px;
             font-size: 40px;
-            font-weight: bold;
             font-family: "Honk", system-ui !important;
             background: #cbabd1;
             color: #eaed13;
             border: none;
             cursor: pointer;
             border-radius: 8px;
-            transition: 0.3s;
         }
 
         /* --- MAIN CONTAINER --- */
@@ -56,70 +50,65 @@
             max-width: 2000px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
         }
 
-        /* --- PHẦN ĐĂNG BÀI --- */
-        .post-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-
-        /* --- LƯỚI ẢNH TỰ ĐỘNG CHIA HÀNG --- */
+        /* --- LƯỚI ẢNH --- */
         .media-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr); 
-            gap: 20px; /* Khoảng cách giữa các ảnh */
+            gap: 20px;
+            row-gap: 60px; /* Tạo khoảng cách dọc lớn hơn giữa các hàng */
             width: 100%;
-            padding-bottom: 50px;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .media-item {
             background: white;
-            border-radius: 0px; /* Góc vuông theo ý bạn */
+            border-radius: 0px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             transition: 0.3s;
-            position: relative;
-            border: 2px solid white; /* Tạo viền nhẹ cho sang */
+            border: 2px solid white;
         }
 
-        .media-item img, .media-item iframe {
+        .media-item img {
             width: 100%;
-            height: 250px; /* Tăng chiều cao lên cho ảnh to rõ hơn */
+            height: 250px;
             object-fit: cover;
             display: block;
         }
 
+        /* HIỆU ỨNG NHÔ LÊN KHI DI CHUỘT */
         .media-item:hover {
-            transform: scale(1.03);
-            z-index: 5;
-            border-color: #eaed13;
+            transform: scale(1.05); /* Nhô lên to hơn chút */
+            z-index: 10;
+            border-color: #eaed13; /* Viền vàng khi chọn */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        /* --- BÍ KÍP TỰ ĐỘNG CHIA KHOẢNG SAU 4 ẢNH --- */
-        /* Cứ mỗi item thứ 4, 8, 12... (cuối hàng) sẽ có một đường kẻ dưới hoặc khoảng cách */
-        .media-item:nth-child(4n) {
-            /* Bạn có thể thêm hiệu ứng riêng cho cột cuối cùng nếu muốn */
-        }
-
-        /* Tự động chèn đường kẻ phân cách sau mỗi hàng 4 ảnh */
-        /* Kỹ thuật này tạo một đường kẻ giả phủ toàn bộ chiều rộng sau mỗi 4 item */
-        .media-container::after {
+        /* --- TỰ ĐỘNG CHÈN ĐƯỜNG KẺ SAU MỖI 4 ITEM --- */
+        /* Cứ mỗi item thứ 4, 8, 12... ta sẽ tạo một đường kẻ giả phía dưới nó */
+        .media-item:nth-child(4n)::after {
             content: "";
+            position: absolute;
+            left: 0;
+            bottom: -40px; /* Đẩy xuống dưới ảnh */
+            width: 410%;   /* Kéo dài qua cả 4 ảnh (vì 100% * 4 + gap) */
+            height: 4px;
+            background: linear-gradient(to right, transparent, gold, transparent); /* Màu vàng lấp lánh */
+            pointer-events: none;
+            /* Dịch chuyển đường kẻ về đúng vị trí bắt đầu của hàng */
+            transform: translateX(-75%); 
+        }
+
+        /* Cách đơn giản hơn để kẻ hàng nếu cách trên khó chỉnh */
+        .hr-line {
             grid-column: 1 / -1; /* Trải dài hết 4 cột */
             height: 2px;
-            background: rgba(255, 255, 255, 0.5);
-            margin: 20px 0;
-            display: none; /* Hiện tại để ẩn, nếu muốn hiện đường kẻ thì đổi thành 'block' */
-        }
-
-        /* Tạo khoảng cách hàng (Row Gap) lớn hơn để nhìn rõ từng khối hàng */
-        .media-container {
-            row-gap: 50px; /* Tăng khoảng cách giữa hàng trên và hàng dưới */
+            background: white;
+            margin: 10px 0;
+            box-shadow: 0 0 10px gold;
         }
 
     </style>
@@ -133,38 +122,29 @@
     </div>
 
     <div class="main-content">
-        <div class="post-container">
-            <!-- Giữ nguyên phần đăng bài của bạn -->
-            <div class="post-header">
-                <textarea class="post-input" placeholder="Hôm Nay Bạn Thế Nào?"></textarea>
-                <button class="post-button">Đăng</button>
-            </div>
-        </div>
-
         <div class="media-container">
-            <!-- Bạn cứ nhúng liên tục, trình duyệt tự chia 4 cột và cách hàng 50px -->
+            <!-- HÀNG 1 -->
             <div class="media-item"><img src="490832163_122099994440840616_2544878531413712226_n.jpg"></div>
             <div class="media-item"><img src="3557638_SinhVienIT.NET---cd21402705eb0b9c47d20b38433cd342-38434345.nice.jpg"></div>
             <div class="media-item"><img src="90_9581ac3d5fa8c72366d58e17308f9817.jpg"></div>
             <div class="media-item"><img src="wallpaper-anh-gai-xinh-4k-1.webp"></div>
             
+            <!-- ĐƯỜNG KẺ PHÂN CÁCH (Bạn thêm dòng này sau mỗi 4 ảnh) -->
+            <div class="hr-line"></div>
+
+            <!-- HÀNG 2 -->
             <div class="media-item"><img src="hinh-nen-may-tinh-9.jpg"></div>
             <div class="media-item"><img src="hinh-nen-may-tinh-71.jpg"></div>
             <div class="media-item"><img src="Duong-Mich.jpg"></div>
             <div class="media-item"><img src="anh-nen-may-tinh-thac-nuoc-hung-vi_025729150.jpg"></div>
 
+            <div class="hr-line"></div>
+
+            <!-- HÀNG 3 -->
             <div class="media-item"><img src="dc54ed1d-434f-4092-8512-9113d433c569.jfif"></div>
             <div class="media-item"><img src="a90b5015-7e8d-4eb3-b70c-36c62f843a9b.jpg"></div>
             <div class="media-item"><img src="hinh-nen-girl-xinh-4k-cho-laptop17-scaled.jpg"></div>
             <div class="media-item"><img src="anh-anime-ca-tinh-lanh-lung-ngau-nhat.jpg"></div>
-
-            <!-- Bạn có thể nhúng cả Video vào đây, nó vẫn nằm đúng ô -->
-            <div class="media-item">
-                <iframe src="https://youtube.com" frameborder="0"></iframe>
-            </div>
-            <div class="media-item"><img src="mdcdjd.jpg"></div>
-            <div class="media-item"><img src="544578871_122114301920977006_8456179275769375996_n.jpg"></div>
-            <div class="media-item"><img src="670781b1-ed7d-4f5b-94c4-e8668db34d5b.jfif"></div>
         </div>
     </div>
 
