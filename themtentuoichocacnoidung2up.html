@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chào mừng bạn đến với Trang Chủ HLS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            background: #ebdaea;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- MENU --- */
+        .menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            background: rgba(235, 218, 234, 0.95);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu button {
+            flex: 1;
+            max-width: 250px;
+            height: 60px;
+            font-size: 40px;
+            font-family: "Honk", system-ui !important;
+            background: #cbabd1;
+            color: #eaed13;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .main-content {
+            margin-top: 120px;
+            width: 98%;
+            max-width: 2000px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- LƯỚI ẢNH --- */
+        .media-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            row-gap: 15px; /* Tạo khoảng cách dọc lớn hơn giữa các hàng */
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            align-items:start;
+            
+        }
+
+        .media-item {
+            background: transparent !important;/*ep buoc an hoac tang hinh nen trong hop cu the css cua anh 1anh hay nhom anh*/
+            border-radius: 0px;/*thuoc tinh bovien khong bo*/
+            overflow: visible; /*chophepchutext duoc hien thi tu do*/
+            box-shadow:none !important;/*ep buoc khong do bong*/
+            transition: 0.3s;
+            border:none !important; /*vien ep buoc tuyet doi k bo vien*/
+        }
+
+        .media-item img {
+            width: 100%;
+            height:200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* HIỆU ỨNG NHÔ LÊN KHI DI CHUỘT */
+        .media-item:hover {
+            transform: scale(1.05); /* Nhô lên to hơn chút */
+            z-index: 10;
+            border-color: #eaed13; /* Viền vàng khi chọn */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+
+        }
+.media-item{
+    background:transparent;/*tang hinh hop bao ngoai anh*/
+    border:none;/*duong vien khong bo*/
+    padding:0;
+    color:red;
+}
+.media-info{
+    background:transparent !important;
+    margin:0;
+color:red;
+}
+.media-title{
+    color:blue;
+    margin:5px 0 0 0;
+    /*chong vo layout khi ten qua dai*/
+    display:-webkit-box;
+    -webkit-line-clamp:2; /*tren title chi duoc hiem toi da 2 dong nhung co the debug lai*/
+    -webkit-box-orient:vertical;/*???*/
+    overflow:hidden;/*bo bot phan thua di sau title of noidung ten titl emedia*/
+    text-overflow:elipsis;/*auto tu dong add them dau... khi title ten qua dai*/
+}
+        .media-meta{
+            color:blue;
+            margin: 2px 0 0 0;
+        }
+        /* Cách đơn giản hơn để kẻ hàng thủ công nếu chỉnh tự động tự thêm kẻ hàng khó */
+        .hr-line {
+            grid-column: 1 / -1; /* Trải dài hết 4 cột */
+            height: 1px;
+            background: white;
+            margin: 1px 0  1px 0;
+            box-shadow: 0 0 10px gold;
+            width:100%;
+            background:linear-gradient(90deg,
+                                   red,
+                                   orange,
+                                   yellow,
+                                  green,
+                                 blue,
+                                    indigo,
+                                       violet);
+    
+            background-size:200% 100%;
+            margin:10px 0 30px 0;
+            box-shadow: 0 0 15px rgba(255,215,0,0.6);
+            width:100%;
+            animation: light-run 2s linear infinite;
+        }
+        
+   @keyframes light-run{
+    0%{
+    background-position: 200% 0;
+    }
+    100%{
+    background-position: -200% 0;
+    }
+    }
+    </style>
+    
+</head>
+<body>
+
+    <div class="menu">
+        <button>HOME</button>
+        <button>MEDIA</button>
+        <button>PICTURE</button>
+    </div>
+
+    <div class="main-content">
+        <div class="media-container">
+            <!-- HÀNG 1 -->
+            <div class="media-item"><img src="490832163_122099994440840616_2544878531413712226_n.jpg">
+                <div class="media-info">
+                    <h3 class="media-title"> u mới. Đạo diễn Destin Daniel Cretton cùng ê-kíp đầy tham vọng khi muốn tái định hình biểu tượng Người Nhện: từ phong cách hành động uyển chuyển hơn đến tông phim mang đậm hơi thở đường phố nhưng không kém phần bí ẩn.
+
+Một trong những điểm nhấn gây bùng nổ mạng xã hội trong trailer chính là sự góp mặt của Mark Ruffalo trong vai Hulk. Sự xuất hiện này đặt ra hàng loạt giả thuyết: liệu gã khổng lồ xanh sẽ là chiếc cầu nối đưa Peter trở lại với biệt đội Avengers, hay lại là một thử thách mới mà Người Nhện phải dè chừng?
+
+19-1773894500-sau-4-nam-cho-doi-nguoi-nhen-tung-trailer-phan-moi-voi-dien-mao-va-hanh-trinh-chua-tung-thay </h3>
+                    <p class="media-meta">100 luot xem 2gio truoc</p>
+                </div>
+            </div>
+            <div class="media-item"><img src="3557638_SinhVienIT.NET---cd21402705eb0b9c47d20b38433cd342-38434345.nice.jpg"></div>
+            <div class="media-item"><img src="90_9581ac3d5fa8c72366d58e17308f9817.jpg"></div>
+            <div class="media-item"><img src="wallpaper-anh-gai-xinh-4k-1.webp"></div>
+            
+            <!-- ĐƯỜNG KẺ PHÂN CÁCH (Bạn thêm dòng này sau mỗi 4 ảnh) -->
+            <div class="hr-line"></div>
+
+            <!-- HÀNG 2 -->
+            <div class="media-item"><img src="hinh-nen-may-tinh-9.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-may-tinh-71.jpg"></div>
+            <div class="media-item"><img src="Duong-Mich.jpg"></div>
+            <div class="media-item"><img src="anh-nen-may-tinh-thac-nuoc-hung-vi_025729150.jpg"></div>
+
+            <div class="hr-line"></div>
+
+            <!-- HÀNG 3 -->
+            <div class="media-item"><img src="dc54ed1d-434f-4092-8512-9113d433c569.jfif"></div>
+            <div class="media-item"><img src="a90b5015-7e8d-4eb3-b70c-36c62f843a9b.jpg"></div>
+            <div class="media-item"><img src="hinh-nen-girl-xinh-4k-cho-laptop17-scaled.jpg"></div>
+            <div class="media-item"><img src="anh-anime-ca-tinh-lanh-lung-ngau-nhat.jpg"></div>
+        </div>
+    </div>
+
+</body>
+</html>
