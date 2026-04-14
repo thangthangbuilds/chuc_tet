@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+      <html>
+        <head>
+        <title> THƯ MỤC CON RegisTer</title>
+    <style>
+    body{
+background:rgb(171, 228, 174);
+display:fex;
+}
+
+.register-container{
+    display:flex;
+    width:100%;
+}
+</style>
+</head>
+<body>
+    <div class="register-container">
+        <form action="/register" method="POST">      <!-- ta mở 1 form tên là:/register ở đây nếu không có không dùng form action="/register" method="POST thì trình duyệt không biết gửi dữ liệu tới đâu hay nơi nao-->
+        <h2> ĐĂNG KÍ</h2>
+        <input type ="text"name="usernamereg"placeholder="TÊN ĐĂNG KÍ">
+        <input type ="password"name="password_reg" placeholder="NHẬP MẬT KHẨU">
+        <button type="submit" >ĐĂNG KÍ</button>
+        </form>
+    </div>
+        <!--mục đích mở form đặt nhãn có tên /register và chốt sổ nó lại trong <form action là để dữ liệu được gửi vào đúng ô /register trên file db ma chung ta se tạo sau-->
+        <!-- mục đích để liên kết chúng lại giữa from này với dữ liệu trên database của mình!-->
+         <!-- quan trọng method="POST" là để mở cổng nhận dữ liệu đầu vào để tới database nên phải có form này:form action="/register" method="POST" -->
+          <!-- và quan trọng nếu không viết kiểu dữ liệu đầu vào là có dạng : <input type ="password" thì trình duyệt sẽ không hiểu đây là 1 dạng kiểu dữ liệu mật khẩu (password)để che đi-->
+</body>
+</html>
